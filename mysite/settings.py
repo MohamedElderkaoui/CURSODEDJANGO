@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-mx'
 # time zone
-TIME_ZONE = 'America/Mexico_City'
+TIME_ZONE = 'europe/madrid'
 USE_I18N = True
 
 USE_TZ = True

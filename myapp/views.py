@@ -1,4 +1,6 @@
+import json
 from django.http import HttpResponse, JsonResponse
+
 from .models import project, task
 
 # Create your views here.
@@ -10,10 +12,26 @@ def helo(request, id):
 
 def about(request):
     return HttpResponse("<h1>About</h1>")
-
 def project(request):
-    p = list(project.objects.values())
-    return JsonResponse(p, safe=False)
+    # Create your views here.
+    p = project.objects.values()
+    t= f'''<h1>Project</h1>
+    <table>
+    <tr>
+    <th>Id</th>
+    <th>Name</th>
+    </tr>
+    '''
+    for i in p:
+        t += f'''
+        <tr>
+        <td>{i['id']}</td>
+        <td>{i['name']}</td>
+        </tr>
+        '''
+    t += '</table>'
+    return HttpResponse(t)
 
-def task(request):
-    return HttpResponse("<h1>Task</h1>")
+def task(request):# Create your views here.
+    t = task.objects.values()
+    

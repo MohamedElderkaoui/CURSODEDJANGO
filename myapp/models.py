@@ -1,11 +1,11 @@
 from django.db import models
 
 # Create your models here.
-class project(models.Model):
+class Project(models.Model):
     name = models.CharField(max_length=100)
     
-class task(models.Model):
+class Task(models.Model):
     name = models.CharField(max_length=100)
-    project = models.ForeignKey(project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     description = models.TextField()
     

@@ -733,3 +733,8 @@ def update_task( request, id):
         task.save()
         return HttpResponseRedirect(reverse('tasks'))
     return HttpResponse(head + body + tail)
+
+def delete_task( request, id):
+    task = Task.objects.get(id=id)
+    task.delete()
+    return HttpResponseRedirect(reverse('tasks'))
